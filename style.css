@@ -1,0 +1,173 @@
+/* =============================================
+   QR Emergency — Premium UI  |  Clean Rebuild
+   ============================================= */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap');
+
+:root {
+  --glass-bg: rgba(255, 255, 255, 0.88);
+  --glass-border: rgba(255, 255, 255, 0.5);
+  --glass-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+  --primary: linear-gradient(135deg, #6366f1, #8b5cf6, #d946ef);
+  --radius: 20px;
+}
+
+/* ── Body ── */
+body {
+  font-family: 'Outfit', system-ui, sans-serif;
+  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  background-size: 400% 400%;
+  animation: bgGradient 15s ease infinite;
+  min-height: 100vh;
+  color: #1e293b;
+  margin: 0;
+}
+@keyframes bgGradient {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ── Glass Cards ── */
+.card {
+  background: var(--glass-bg) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  border: 1px solid var(--glass-border) !important;
+  box-shadow: var(--glass-shadow) !important;
+  border-radius: var(--radius) !important;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+}
+.card:hover {
+  transform: translateY(-4px) !important;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.12) !important;
+}
+
+/* ── Headings gradient ── */
+.card h5, .card h4, .card-body h5, .card-body h4 {
+  font-weight: 800 !important;
+  background: var(--primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+  margin-bottom: 12px;
+}
+.card h5 i, .card h4 i {
+  -webkit-text-fill-color: initial;
+  color: #8b5cf6;
+}
+
+/* ── Buttons ── */
+.btn {
+  border-radius: 14px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.3px;
+  transition: all 0.25s ease !important;
+  position: relative;
+}
+.btn-primary {
+  background: var(--primary) !important;
+  border: none !important;
+  color: #fff !important;
+}
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(139,92,246,0.4) !important; }
+.btn:active { transform: translateY(1px) !important; }
+.btn i { transition: transform 0.25s ease; }
+.btn:hover i { transform: scale(1.2); }
+
+/* ── Form controls ── */
+.form-control, .input-group-text {
+  border-radius: 12px !important;
+  border: 2px solid rgba(255,255,255,0.6) !important;
+  background: rgba(255,255,255,0.65) !important;
+  transition: all 0.25s ease !important;
+}
+.form-control:focus {
+  background: #fff !important;
+  border-color: #8b5cf6 !important;
+  box-shadow: 0 0 0 4px rgba(139,92,246,0.15) !important;
+}
+
+/* ── List items ── */
+.list-group-item {
+  background: rgba(255,255,255,0.75) !important;
+  border: 1px solid rgba(255,255,255,0.4) !important;
+  border-radius: 14px !important;
+  margin-bottom: 8px;
+  transition: all 0.25s;
+}
+.list-group-item:hover { background: rgba(255,255,255,0.95) !important; transform: translateX(4px); }
+
+/* ── Medical alert badges ── */
+.badge-med {
+  padding: 8px 18px;
+  font-size: 0.9rem;
+  color: #991b1b;
+  background: linear-gradient(135deg, rgba(254,226,226,0.9), rgba(254,202,202,0.9)) !important;
+  border-radius: 50px;
+  box-shadow: 0 4px 10px rgba(220,38,38,0.1);
+  display: inline-block;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+/* ── Navbar ── */
+.navbar {
+  background: var(--glass-bg) !important;
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--glass-border);
+  padding: 14px 20px !important;
+}
+.navbar-brand {
+  background: var(--primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 1.4rem !important;
+  font-weight: 800 !important;
+}
+/* Logout button in navbar — styled clearly */
+.btn-logout {
+  background: linear-gradient(135deg, #ef4444, #dc2626) !important;
+  color: #fff !important;
+  border: none !important;
+  border-radius: 12px !important;
+  font-weight: 700 !important;
+  padding: 8px 18px !important;
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+}
+.btn-logout:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(239,68,68,0.45) !important;
+  color: #fff !important;
+}
+
+/* ── Toast (MUST have pointer-events:none when hidden) ── */
+.toast-msg {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 999;          /* lower than buttons */
+  min-width: 220px;
+  opacity: 0;
+  pointer-events: none;  /* never block clicks when invisible */
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  transform: translateY(20px);
+  border-radius: 14px;
+  backdrop-filter: blur(10px);
+  box-shadow: var(--glass-shadow);
+}
+.toast-msg.show {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+/* ── Pulsing red button ── */
+.pulse-red { animation: pulseRed 2s infinite; }
+@keyframes pulseRed {
+  0%   { box-shadow: 0 0 0 0 rgba(220,38,38,0.7); }
+  70%  { box-shadow: 0 0 0 15px rgba(220,38,38,0); }
+  100% { box-shadow: 0 0 0 0 rgba(220,38,38,0); }
+}

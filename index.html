@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Emergency Information</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Bootstrap -->
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+
+  <!-- AOS Animations -->
+  <link rel="stylesheet"
+        href="https://unpkg.com/aos@2.3.4/dist/aos.css">
+
+  <!-- Premium Custom UI -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="container py-4">
+
+  <!-- PROFILE -->
+  <div class="card profile-card shadow mb-4" data-aos="fade-up">
+    <div class="card-body">
+      <h4 id="profileName" class="fw-bold text-primary">
+        <i class="bi bi-heart-pulse"></i>
+      </h4>
+
+      <p>
+        <strong>Blood Group:</strong>
+        <span id="bloodGroup"></span>
+      </p>
+
+      <p id="addressContainer" style="display: none;">
+        <i class="bi bi-geo-alt-fill text-danger"></i>
+        <strong>Address:</strong>
+        <span id="profileAddress"></span>
+      </p>
+
+      <h6 class="mt-3">
+        <i class="bi bi-telephone-fill text-success"></i>
+        Emergency Contacts
+      </h6>
+      <div id="contactsContainer" class="d-flex flex-column gap-2 mb-3"></div>
+
+      <h6>Medical Alerts</h6>
+      <div id="medicalAlerts"></div>
+    </div>
+  </div>
+
+  <!-- DOCUMENTS -->
+  <div class="card documents-card shadow mb-4" data-aos="fade-up" data-aos-delay="150">
+    <div class="card-body">
+      <h5>
+        <i class="bi bi-file-earmark-lock"></i>
+        Protected Documents
+      </h5>
+      <div id="documentsContainer" class="mt-3"></div>
+    </div>
+  </div>
+
+  <!-- EMERGENCY -->
+  <div class="card emergency-card shadow" data-aos="zoom-in" data-aos-delay="300">
+    <div class="card-body text-center">
+      <h5 class="fw-bold text-danger">
+        <i class="bi bi-exclamation-triangle"></i>
+        Emergency Actions
+      </h5>
+
+      <button class="btn btn-danger pulse-red w-100 my-3 fw-bold p-3"
+              onclick="openEmergencyActions()">
+        <i class="bi bi-patch-exclamation-fill me-2"></i> EMERGENCY MODE
+      </button>
+
+      <div id="emergencyPanel" style="display:none;" class="mt-3">
+        <button class="btn btn-warning w-100 mb-2"
+                onclick="callPrimaryContact()" id="btnCallPrimary">
+          <i class="bi bi-telephone-fill"></i>
+          Call Primary Contact
+        </button>
+        <button class="btn btn-success w-100"
+                onclick="sendEmergencySMS()">
+          <i class="bi bi-chat-dots-fill"></i>
+          Send Emergency SMS
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <footer class="mt-4 mb-4 text-center text-muted fw-bold">
+    <i class="bi bi-shield-check text-success"></i> Emergency QR System • Premium UI
+  </footer>
+
+</div>
+
+<!-- AOS -->
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script>AOS.init({ duration: 900, once: true });</script>
+
+<!-- Public Logic -->
+<script type="module" src="script.js?v=2"></script>
+
+</body>
+</html>
